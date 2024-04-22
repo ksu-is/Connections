@@ -7,7 +7,7 @@
 - [x] Researched similar repositories within the organization related to the program.     
 
 # Sprint 2:
-- [ ] 6 code changes from Connections
+- [ ] 6 code additions for Connections. Comments included. 
 - [ ] Create 16 list word bank
 - [ ] Assign that 16 list word bank 4 categories. Each category will have a color reperesenting it. Each Color will be assigned a difficulty rating. 
 - [ ] Define some important variables like lives and round count.
