@@ -11,18 +11,18 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             "Ear...": {"words": ["Drum", "Mark", "Wax", "Wig"], "difficulty": 4}
         }
         #Assigning each difficulty with a certain color
-        self.difficulty_colors = {
+        self.difficulty_colors={
             1: "yellow",
             2: "green",
             3: "blue",
             4: "purple"
         }
 
-        self.root = tk.Tk()
+        self.root=tk.Tk()
         self.root.title("Connections") #Add Title Connections to the Top
 
         # Adds instructions on how to play the game. 
-        description = (
+        description=(
             "Find groups of four items that share something in common.\n\n"
             "Select up to four items by clicking on them, then tap 'Submit' to check if your guess is correct.\n"
             "Find the groups without making 4 mistakes!\n\n"
@@ -43,7 +43,7 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
         self.root.mainloop()
         
         #Creates the tinker window connections and creates a window that someone can interact with until they close the UI. 
-        self.root = tk.Tk()
+        self.root=tk.Tk()
         self.root.title("Connections")
         self.create_buttons()
         self.root.mainloop()
@@ -62,4 +62,4 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             color=self.difficulty_colors.get(difficulty, "white")
             tk.Button(frame, text=word, bg=color).grid(row=i // 4, column=i % 4, padx=5, pady=5)
 
-game = ConnectionsGame()
+game=ConnectionsGame()
