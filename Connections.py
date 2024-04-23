@@ -3,13 +3,12 @@ import tkinter as tk
 from tkinter import messagebox
 
 class ConnectionsGame: #created a word list with 16 words and assigned them a difficulty level. 
-    def __init__(self, word_list):
-        self.list=word_list
+    def __init__(self):
         self.categories={
-            "Embodiment":{"words":["Ideal", "Example", "Model", "Symbol"], "difficulty":1},
-            "Related to Trains":{"words":["Car", "Conductor", "Station", "Track"], "difficulty":2},
-            "Starting with the same sound":{"words":["Cymbal", "Scimitar", "Simmer", "Symphony"], "difficulty":3},
-            "Ear...":{"words":["Drum", "Mark", "Wax", "Wig"], "difficulty":4}
+            "Embodiment": {"words": ["Ideal", "Example", "Model", "Symbol"], "difficulty": 1},
+            "Related to Trains": {"words": ["Car", "Conductor", "Station", "Track"], "difficulty": 2},
+            "Starting with the same sound": {"words": ["Cymbal", "Scimitar", "Simmer", "Symphony"], "difficulty": 3},
+            "Ear...": {"words": ["Drum", "Mark", "Wax", "Wig"], "difficulty": 4}
         }
         #Assigning each difficulty with a certain color
         self.difficulty_colors = {
@@ -18,19 +17,25 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             3: "blue",
             4: "purple"
         }
+        
         #Creates the tinker window connections and creates a window that someone can interact with until they close the UI. 
         self.root = tk.Tk()
         self.root.title("Connections")
         self.create_buttons()
         self.root.mainloop()
-
-    #Adds buttons, gives them colors, makes them clickable, associates colors with difficulty. 
+    #Creates buttons and creates space between them. Pack will allow me to create the grid.
     def create_buttons(self):
-        for category, data in self.categories.items():
-            tk.Label(self.root, text=category).pack()
-            for word in data["words"]:
-                difficulty = data["difficulty"]
-                color = self.difficulty_colors.get(difficulty, "white")
-                tk.Button(self.root, text=word, bg=color).pack()
+        frame=tk.Frame(self.root)
+        frame.pack()
+
+    #Adds puts buttons into a 4x4 grid based onn their assigned difficulties. 
+        all_words = [word for data in self.categories.values() for word in data["words"]]
+
+        for i, word in enumerate(all_words):
+            category=list(self.categories.keys())[i // 4]
+            data=self.categories[category]
+            difficulty=data["difficulty"]
+            color=self.difficulty_colors.get(difficulty, "white")
+            tk.Button(frame, text=word, bg=color).grid(row=i // 4, column=i % 4, padx=5, pady=5)
 
 game = ConnectionsGame()
