@@ -23,3 +23,14 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
         self.root.title("Connections")
         self.create_buttons()
         self.root.mainloop()
+
+    #Adds buttons, gives them colors, makes them clickable, associates colors with difficulty. 
+    def create_buttons(self):
+        for category, data in self.categories.items():
+            tk.Label(self.root, text=category).pack()
+            for word in data["words"]:
+                difficulty = data["difficulty"]
+                color = self.difficulty_colors.get(difficulty, "white")
+                tk.Button(self.root, text=word, bg=color).pack()
+
+game = ConnectionsGame()
