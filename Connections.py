@@ -18,3 +18,8 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             3: "blue",
             4: "purple"
         }
+        #Creates the tinker window connections and creates a window that someone can interact with until they close the UI. 
+        self.root = tk.Tk()
+        self.root.title("Connections")
+        self.create_buttons()
+        self.root.mainloop()
