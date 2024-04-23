@@ -17,6 +17,30 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             3: "blue",
             4: "purple"
         }
+
+        self.root = tk.Tk()
+        self.root.title("Connections") #Add Title Connections to the Top
+
+        # Adds instructions on how to play the game. 
+        description = (
+            "Find groups of four items that share something in common.\n\n"
+            "Select up to four items by clicking on them, then tap 'Submit' to check if your guess is correct.\n"
+            "Find the groups without making 4 mistakes!\n\n"
+            "Category Examples:\n"
+            "FISH: Bass, Flounder, Salmon, Trout\n"
+            "FIRE ___: Ant, Drill, Island, Opal\n\n"
+            "Categories will always be more specific than '5-LETTER-WORDS,' 'NAMES' or 'VERBS.'\n"
+            "Each puzzle has exactly one solution. Watch out for words that seem to belong to multiple categories!\n\n"
+            "Each group is assigned a color, which will be revealed as you solve:\n"
+            "Easy: Yellow\n"
+            "Moderate: Green\n"
+            "Hard: Blue\n"
+            "Difficult: Purple"
+        )
+        tk.Label(self.root, text=description, wraplength=400, justify=tk.LEFT).pack()
+
+        self.create_buttons()
+        self.root.mainloop()
         
         #Creates the tinker window connections and creates a window that someone can interact with until they close the UI. 
         self.root = tk.Tk()
