@@ -11,3 +11,10 @@ class ConnectionsGame: #created a word list with 16 words and assigned them a di
             "Starting with the same sound":{"words":["Cymbal", "Scimitar", "Simmer", "Symphony"], "difficulty":3},
             "Ear...":{"words":["Drum", "Mark", "Wax", "Wig"], "difficulty":4}
         }
+        #Assigning each difficulty with a certain color
+        self.difficulty_colors = {
+            1: "yellow",
+            2: "green",
+            3: "blue",
+            4: "purple"
+        }
