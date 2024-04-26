@@ -43,7 +43,7 @@ class ConnectionsGame:#created a word list with 16 words and assigned them a dif
         instructions=(
             "Find groups of four items that share something in common.\n\n"
             "Select up to four items by clicking on them, then tap 'Submit' to check if your guess is correct.\n"
-            "Find the groups without making 4 mistakes!\n\n"
+            "Find the groups without making 3 mistakes!\n\n"
             "Category Examples:\n"
             "FISH: Bass, Flounder, Salmon, Trout\n"
             "FIRE ___: Ant, Drill, Island, Opal\n\n"
@@ -97,14 +97,14 @@ class ConnectionsGame:#created a word list with 16 words and assigned them a dif
             category=categories[0]
             self.correct_categories.add(category)
             self.disable_category_buttons(category)
-            messagebox.showinfo("Correct!")
+            messagebox.showinfo("Correct Guess",f"Category '{category}' guessed correctly!")
         else:
-            messagebox.showinfo("Incorrect, guess again.")
+            messagebox.showinfo("Incorrect Guess","Selected buttons do not belong to the same category.")
             #Removes a life everytime the player guesses a wrong grouping
             self.lives-=1
             self.lives_label.config(text=f"Lives: {self.lives}")
             if self.lives==0:
-                messagebox.showinfo("Game over.")
+                messagebox.showinfo("Game Over","You ran out of lives! Game over.")
                 self.restart_game()
         self.clear_selection()
 
@@ -114,6 +114,8 @@ class ConnectionsGame:#created a word list with 16 words and assigned them a dif
         frame.pack()
 
         all_words=[word for data in self.categories.values() for word in data["words"]]
+        #Shuffles the words so they randomize at the start of the game. 
+        random.shuffle(all_words)
         button_dict={}
 
         for i,word in enumerate(all_words):
